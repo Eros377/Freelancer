@@ -1,0 +1,238 @@
+/*
+Responsive para celular
+@media (min-width: 480px) {
+    
+}
+Responsive para tablet
+@media (min-width: 768px) {
+    
+}
+para una latptop o monitor
+@media (min-width: 1140px) {
+    
+}
+algo mas grande
+@media (min-width: 1400pxpx) {
+    
+}
+*/
+/*global*/
+:root{
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secudanrio: #0097a7;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+}
+html{
+    font-size:62.5%;
+    box-sizing:border-box;
+    scroll-snap-type: y mandatory;
+}
+*, *:before, *:after{
+    box-sizing:inherit;
+}
+body{
+    font-size:16px; /*1 rem = 10 pixeles*/
+    font-family:"Krub", sans-serif;
+    background-image:linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 90%);
+
+}
+/*Scroll-snap*/
+.navegacion-principal, .servicios, .formulario{
+    scroll-snap-align:center;
+    scroll-snap-stop:always;
+}
+/*Tipografia*/
+h1{
+    font-size:3.8rem;
+}
+h2{
+    font-size:2.8rem;
+}
+h3{
+    font-size:1.8rem;
+}
+h1,h2,h3{
+    text-align:center;
+}
+.contenedor{
+    max-width: 80rem; /*Toma ese 1200 pixeles si hay disponible, si no toma el 100% que toma un div*/
+    margin:0 auto;
+}
+.sombra{
+    box-shadow: 0px 20px 15px 0px rgba(163,163,163,0.3);
+    background-color:var(--blanco);
+    border-radius:1rem;
+    padding:2rem;
+}
+.titulo span{
+    font-size:2rem;
+}
+
+/*navegador*/
+.nav-background{
+    background-color:var(--secudanrio);
+}
+.navegacion-principal{
+    display:flex;
+    justify-content:space-between;
+    
+}
+.navegacion-principal a{
+    display:block;
+    text-align:center;
+    padding:1rem;
+    text-decoration:none;
+    font-size:2rem;
+    font-weight:700;
+    color:var(--blanco);
+}
+.navegacion-principal a:hover{
+    background-color:var(--primario);
+    color:var(--oscuro);
+}
+/*Presentacion*/
+.hero{
+    background-image:url(../image/hero.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    height:45rem;
+    position: relative;
+    margin-bottom:2rem;
+}
+.contenido-hero{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.7);
+
+    /*alinear verticalmente y horizontalmente*/
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+}
+
+.contenido-hero h2, .contenido-hero p{
+    color:var(--blanco);
+}
+.boton{
+    text-decoration:none;
+    background-color:var(--secudanrio);
+    color:var(--blanco);
+    padding:1rem 3rem; /*arriba/abajo y derecha/izquierda*/
+    margin-top:1rem;
+    font-size:2rem;
+    border-radius:0.5rem;
+    text-transform:uppercase;
+    font-weight:bold;
+    border:none;
+}
+.boton:hover{
+    cursor:pointer;
+}
+/*Principal*/
+.servicios{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr); /*cantidad de columnas y su tamaño (1fr = una fraccion)*/
+    column-gap:4rem; /*agrega un margen*/
+}
+.servicio{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.servicio h3{
+    color:var(--secudanrio);
+    font-weight:400;
+    
+}
+.servicio .iconos{
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    width:15rem;
+    height:15rem;
+    background-color: var(--primario);
+    border-radius:100%;
+}
+.servicio p{
+    line-height:2;
+}
+
+/*formulario*/
+.formulario{
+    background-color:var(--gris);
+    width:min(60rem, 100%); /*Utiliza el numero mas pequeño para adaptarse a la pantalla*/ 
+    margin:0 auto;
+    padding:2rem;
+    border-radius:1rem;
+}
+.formulario fieldset{
+    border:none;
+}
+.formulario fieldset legend{
+    text-align:center;
+    font-size:1.8rem;
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:2rem;
+
+    color:var(--primario);
+}
+.contenedor-campos{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-template-rows:auto auto 22rem;
+    column-gap:2rem;
+}
+.campo{
+    margin-bottom:1rem;
+}
+.campo:nth-child(3), .campo:nth-child(4){
+    grid-column:1 / 3;
+}
+.campo textarea{
+    height:20rem;
+}
+.campo label{
+    color:var(--blanco);
+    font-weight:700;
+    margin-bottom:0.5rem;
+    display:block;
+}
+.input-text{
+    width:100%;
+    border:none;
+    padding:1.5rem;
+    border-radius:0.5rem;
+}
+.enviar{
+    display:flex;
+    justify-content:flex-end;
+}
+.footer{
+    text-align:center;
+}
+/*Responsive*/
+@media (max-width: 768px) {
+    .contenedor-campos{
+        display:block;
+    }
+    .navegacion-principal{
+        flex-direction:column;
+    }
+    .boton{
+        width:80%;
+        text-align:center;
+    }
+    .servicios{
+        display:block;
+    }
+    .enviar .boton{
+        width: 100%;
+    }
+}
